@@ -1,0 +1,9 @@
+version: '3.5'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.11-management
+    container_name: rabbitmq_exponencial_backoff
+    ports:
+      - 5672:5672
+      - 15672:15672

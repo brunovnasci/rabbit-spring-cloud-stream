@@ -1,0 +1,23 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    function.definition: consumer;producer;processor
+    stream.bindings:
+      consumer-in-0:
+        destination: producer-exchange
+        group: consumer-queue
+        binder: rabbit
+      producer-out-0:
+        destination: producer-exchange
+        binder: rabbit
+      processor-in-0:
+        destination: processor-exchange
+        group: processor-queue
+        binder: rabbit
+      processor-out-0:
+        destination: producer-exchange
+        binder: rabbit
